@@ -1,0 +1,312 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <GL/glut.h>
+#include <math.h>
+
+
+#define janela_altura 600
+#define janela_largura 600
+#define PI 3.1415926535898
+
+void display(void);
+void tela(GLsizei w, GLsizei h);
+
+
+
+
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+
+    glutInitWindowSize(janela_largura, janela_altura);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Pascoa");
+
+    glutReshapeFunc(tela);
+    glutDisplayFunc(display);
+
+
+    glutMainLoop();
+
+    return(0);
+
+}
+
+
+void desenhar()
+{
+    GLfloat circ_pnt = -100;
+    GLfloat ang, raioX = 200.0f, raioY = 150.0f;
+
+
+    //Ovo 1
+    glPushMatrix();
+
+    glTranslatef(-130, 30, 0);
+
+
+    glColor3f(0.0, 0.0, 0.8);
+
+    glBegin(GL_POLYGON);
+
+    for (int i = 0; i < 100; i++)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+        glVertex2f(cos(ang) * 50, sin(ang) * 70);
+        glColor3f(0.0, 0.9, 0.8);
+        printf("%f  %f\n", cos(ang) * raioX, sin(ang) * raioY);
+    }
+
+    glEnd();
+
+    glPopMatrix();
+
+
+
+    //Ovo 2 
+
+    glPushMatrix();
+
+    glTranslatef(130, 30, 0);
+
+
+    glColor3f(1.0, 0.5, 0.0);
+
+    glBegin(GL_POLYGON);
+
+    for (int i = 0; i < 100; i++)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+        glVertex2f(cos(ang) * 50, sin(ang) * 70);
+        glColor3f(1.0, 0.2, 0.2);
+        printf("%f  %f\n", cos(ang) * raioX, sin(ang) * raioY);
+    }
+
+    glEnd();
+
+    glPopMatrix();
+
+
+
+    //Ovo 3
+
+    glPushMatrix();
+
+    glTranslatef(0, 60, 0);
+
+
+    glColor3f(0.5, 1.0, 0.4);
+
+    glBegin(GL_POLYGON);
+
+    for (int i = 0; i < 100; i++)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+        glVertex2f(cos(ang) * 80, sin(ang) * 100);
+        glColor3f(0.0, 0.5, 0.1);
+        printf("%f  %f\n", cos(ang) * raioX, sin(ang) * raioY);
+    }
+
+    glEnd();
+
+    glPopMatrix();
+
+    //laço 1 1/2
+
+
+    glPushMatrix();
+
+    glTranslatef(-30, 0, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+    glEnd();
+
+    glPopMatrix();
+
+
+    //laço 1 2/2
+
+    glPushMatrix();
+
+    glTranslatef(15, 0, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+
+
+    glPopMatrix();
+
+    glEnd();
+
+    //laço 2 1/2
+
+    glPushMatrix();
+
+    glTranslatef(-170, 60, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+    glEnd();
+
+    glPopMatrix();
+
+    //laço 2 2/2 
+
+    glPushMatrix();
+
+    glTranslatef(-125, 60, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+    glEnd();
+
+    glPopMatrix();
+
+
+
+    //laço 3 1/2
+
+    glPushMatrix();
+
+    glTranslatef(-300, 0, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+    glEnd();
+
+    glPopMatrix();
+
+    //laço 3 2/2 
+
+
+    glPushMatrix();
+
+    glTranslatef(-260, 0, 0);
+
+    glBegin(GL_TRIANGLES);
+    glColor3f(0.0, 0.0, 0.1);
+    glVertex2i(110, 100);
+    glVertex2i(140, 120);
+    glVertex2i(160, 100);
+
+    glEnd();
+
+    glPopMatrix();
+
+
+    //Cesta
+
+  
+
+    glPushMatrix();
+
+    glTranslatef(-15, 0, 0);
+
+
+    glColor3f(0.4, 0.1, 0.0);
+    glLineWidth(1.0f);
+    glBegin(GL_POLYGON);
+
+
+    for (int i = 0; i < 51; i++)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+        glVertex2f(cos(ang) * raioX, sin(ang) * raioY);
+        printf("%f  %f\n", cos(ang) * raioX, sin(ang) * raioY);
+
+        glColor3f(0.5, 0.3, 0.1);
+        
+    }
+
+    glEnd();
+
+    int j=0;
+
+    for (float i = 0; i < 45; i +=1, j-=8)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+   
+        glBegin(GL_LINES);
+        glColor3f(0.4, 0.2, 0.1);
+        glVertex2f(200, 0);
+        glVertex2f(cos(ang) * raioX, sin(ang) * raioY);
+        
+        glEnd();
+    }
+
+    for (float i = 0; i < 45; i += 1, j += 8)
+    {
+        ang = (2 * PI * i) / circ_pnt;
+
+        glBegin(GL_LINES);
+        glColor3f(0.4, 0.2, 0.1);
+        glVertex2f(-200, 0);
+        glVertex2f(cos(ang) * raioX, sin(ang) * raioY);
+
+        glEnd();
+    }
+
+    glPopMatrix();
+
+   
+}
+ 
+
+
+void display()
+{
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glTranslatef(janela_largura / 2, janela_altura / 2, 0.0f);
+
+    glViewport(0, 0, janela_largura, janela_altura);
+    desenhar();
+
+    glFlush();
+}
+
+void tela(GLsizei w, GLsizei h)
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    gluOrtho2D(0, janela_largura, 0, janela_altura);
+
+    glMatrixMode(GL_MODELVIEW);
+}
+
+
+
+
+
+
+
+
